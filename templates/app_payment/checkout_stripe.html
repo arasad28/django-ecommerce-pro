@@ -1,0 +1,22 @@
+{% extends 'app_login/base.html' %}
+{% block content %}
+
+
+<div class="container">
+
+
+    <section>
+      <div class="product">
+ 
+        <div class="description">
+          <h5>$20.00</h5>
+        </div>
+      </div>
+      <form action="{% url 'app_payment:stripe_session' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" id="checkout-button">Checkout</button>
+      </form>
+    </section>
+
+  </div>
+{% endblock %}

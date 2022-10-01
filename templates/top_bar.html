@@ -1,0 +1,36 @@
+{% load static %}
+
+<div class="top_bar">
+    <div class="container">
+        <div class="row">
+            <div class="col d-flex flex-row">
+                
+                <div class="top_bar_content ml-auto">
+                    <div class="top_bar_menu">
+                        <ul class="standard_dropdown top_bar_dropdown">
+                            <li>
+                                <a href="#">English<i class="fas fa-chevron-down"></i></a>
+
+                            </li>
+                            <li>
+                                <a href="#">$ US dollar<i class="fas fa-chevron-down"></i></a>
+
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="top_bar_user">
+                        {% if user.is_authenticated %}
+                        <div class="user_icon"><img src="{% static 'images/user.svg' %}" alt=""></div>
+                        <div><a href="{% url 'app_login:profile' %}">Profile</a></div>
+                        <div><a href="{% url 'app_login:logout' %}">Logout</a></div>
+                        {% else %}
+                        <div class="user_icon"><img src="{% static 'images/user.svg' %}" alt=""></div>
+                        <div><a href="{% url 'app_login:signup' %}">Register</a></div>
+                        <div><a href="{% url 'app_login:login' %}">Sign in</a></div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>		
+</div>

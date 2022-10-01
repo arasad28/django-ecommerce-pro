@@ -1,0 +1,23 @@
+{% extends 'app_login/base.html' %}
+{% block title %} Payment {% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+
+        </div>
+        <div class="col-sm-6 my-5">
+            <h3 class="mb-3 my-3">Payment: </h3>
+            <a href="{% url 'app_payment:paypal_pay' %}" class="btn btn-success btn-lg w-100 mt-3">PayPal</a>
+            <a href="{% url 'app_payment:checkout_stripe' %}" class="btn btn-success btn-lg w-100 mt-3">Stripe</a>
+            <a href="{% url 'app_payment:pay_ssl' %}" class="btn btn-success btn-lg w-100 mt-3">SSL-Ecommerce</a>
+        </div>
+        <div class="col-sm-6">
+
+        </div>
+    </div>
+    
+</div>
+
+{% endblock %}

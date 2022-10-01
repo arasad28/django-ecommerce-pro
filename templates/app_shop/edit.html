@@ -1,0 +1,18 @@
+{% extends 'app_login/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Edit {% endblock %}
+
+
+{% block content %}
+<div class="container my-5">
+{% if product.author == user %}
+<form method="post" enctype="multipart/form-data">
+    {{form|crispy}}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-md btn-success">Update</button>
+</form>
+{% else %}
+<p>404 Error! You don't have to permission to this page</p>
+{% endif %}
+</div>
+{% endblock %}

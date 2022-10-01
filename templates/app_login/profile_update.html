@@ -1,0 +1,24 @@
+{% extends 'app_login/base.html' %}
+
+{% load crispy_forms_tags %}
+{% block title %} Profile {% endblock %}
+
+{% block content %}
+<div class="container my-4">
+    {% if user.profile.seller %}
+    <a href="{% url 'app_login:my_product' %}" class="btn btn-info btn-md my-3">Your Product</a>
+    {% endif %}
+<h2>Profile Update:</h2>
+<form action="" method="POST">
+    {{form|crispy}}
+    {% csrf_token %}
+
+    <button type="submit" class="btn btn-primary btn-md mr-5">Save</button>
+    
+</form>
+<br>
+<br>
+</div>
+<br>
+
+{% endblock %}

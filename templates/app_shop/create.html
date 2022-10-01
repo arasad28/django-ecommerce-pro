@@ -1,0 +1,19 @@
+{% extends 'app_login/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Add Product {% endblock %}
+
+{% block content %}
+{% if user.profile.seller %}
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit" class="btn btn-md btn-primary">Submit</button>
+    </form>
+    {% else %}
+</div>
+<div class="container">
+<p>You don't have permisiion to access to this page</p>
+</div>
+{% endif %}
+{% endblock %}

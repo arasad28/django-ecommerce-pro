@@ -1,0 +1,45 @@
+{% extends 'app_login/base.html' %}
+{% block title %} {{request.user}} Product {% endblock %}
+
+{% block content %}
+
+{% if user.profile.seller %}
+<div class="container my-5">
+    <a href="{% url 'app_shop:add_product' %}" class="btn btn-md btn-warning ml-5 mb-4">Add New Product</a>
+</div>
+{% endif %}
+{% for post in user.author.all %}
+
+<div class="container my-3">
+
+<div class="row">
+    <div class="col-sm-4">
+        <img src="/media/{{post.image}}" alt="" height="100px" width="100px">
+    </div>
+    <div class="col-sm-6">
+        <h3>{{post.title}}</h3>
+        <p>{{post.short_description|slice:":80"}}</p>
+        
+        <a href="{% url 'app_shop:edit_products' pk=post.pk %} " class="btn btn-md btn-info">Edit</a>
+    </div>
+    <div class="col-sm-2">
+        {% if not post.q_deal_req and not post.q_deal%}
+        <form action="" method="POST">
+            <input type="hidden" name="prod_pk" value="{{post.pk}}">
+            <button type="submit" class="btn btn-md btn-success">Request for Quick deal</button>
+            {% csrf_token %}
+        </form>
+        {% elif post.q_deal %}
+        <p  class="btn btn-md btn-primary">Your Product in Quick Deal</p>
+        {% else %}
+        <p  class="btn btn-md btn-primary">Request in Process</p>
+        {% endif %}
+
+    </div>
+</div>
+<hr>
+</div>
+{% endfor %}
+
+
+{% endblock %}

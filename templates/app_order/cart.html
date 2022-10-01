@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %} Cart {% endblock %}
+
+{% block content %}
+	<!-- Cart -->
+
+	<div class="cart_section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1">
+					<div class="cart_container">
+						<div class="cart_title">Shopping Cart</div>
+						<div class="cart_items">
+                            {% for obj in cart %}
+							<ul class="cart_list">
+								<li class="cart_item clearfix">
+									<div class="cart_item_image"><img src="/media/{{obj.item.image}}" alt=""></div>
+									<div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
+										<div class="cart_item_name cart_info_col">
+											<div class="cart_item_title">Name</div>
+											<div class="cart_item_text">{{obj.item.title}}</div>
+										</div>
+										<div class="cart_item_quantity cart_info_col">
+											<div class="cart_item_title">Quantity</div>
+											<div class="cart_item_text"><a href="{% url 'app_order:increase' pk=obj.item.pk %}"><i class="fa fa-plus" style="font-size:12px"></i></a>  {{obj.quantity}}  <a href="{% url 'app_order:decrease' pk=obj.item.pk %}"><i class="fa fa-minus" style="font-size:12px"></i></a></div>
+										</div>
+										<div class="cart_item_price cart_info_col">
+											<div class="cart_item_title">Price</div>
+											<div class="cart_item_text">${{obj.item.price}}</div>
+										</div>
+										<div class="cart_item_total cart_info_col">
+											<div class="cart_item_title">Total</div>
+											<div class="cart_item_text">${{obj.get_total}}</div>
+										</div>
+										<div class=" cart_info_col">
+											<div class="cart_item_title">Remove</div>
+											<div class="cart_item_text"><a href="{% url 'app_order:remove' pk=obj.item.pk %}"><i class="fa fa-trash" aria-hidden="true"></i></a></div>
+										</div>
+									</div>
+								</li>
+							</ul>
+                            {% endfor %}
+						</div>
+						<!-- Order Total -->
+						<div class="order_total">
+							<div class="order_total_content text-md-right">
+								<div class="order_total_title">Order Total:</div>
+								<div class="order_total_amount">${{order.get_total}}</div>
+							</div>
+						</div>
+
+						<div class="cart_buttons">
+							<a href="{% url 'app_payment:checkout' %}"><button type="button" class="button cart_button_checkout">Proced to Checkout</button></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+	

@@ -1,0 +1,69 @@
+
+{% extends 'app_login/base.html' %}
+{% block content %}
+<div class="container my-5">
+
+
+    <!-- Replace "test" with your own sandbox Business account app client ID -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AZmucgr_kJJIV2Zkvr1vUbtsgw5e2qmc9Pjx2fS_3CUVZF8w-apmjUtWM-NsQGGbsW0TQGHiEOQc1eni&currency=USD"></script>
+    <!-- Set up a container element for the button -->
+    <div id="paypal-button-container"></div>
+    <script>
+        var total = '{{order_total}}'
+      paypal.Buttons({
+        style: {
+            layout: 'vertical',
+            color:  'blue',
+            shape:  'rect',
+            label:  'paypal'
+                },
+        // Sets up the transaction when a payment button is clicked
+        
+        createOrder: (data, actions) => {
+          return actions.order.create({
+            purchase_units: [{
+              amount: {
+                value: total // Can also reference a variable or function
+              }
+            }]
+          });
+        },
+        // Finalize the transaction after payer approval
+        onApprove: function(data) {
+            var url = 'http://127.0.0.1:8000/payment/paypal_sucess/'
+            
+            return fetch(url, {
+                method:'POST',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify({
+                    // orderID: data.orderID
+                    data: data
+                   
+                })
+            })
+        },
+    }).render('#paypal-button-container');
+        // onApprove: (data, actions) => {
+        //   return actions.order.capture().then(function(orderData) {
+        //     body: JSON.stringify({
+                    // orderID: data.orderID,
+            //         orderData
+            // })
+            // console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+            // const transaction = orderData.purchase_units[0].payments.captures[0];
+            // console.log(transaction)
+            // alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+            
+            // const element = document.getElementById('paypal-button-container');
+            // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+            // URL:  actions.redirect('http://127.0.0.1:8000/payment/paypal_sucess/');
+        //   });
+        // }
+
+    //   }).render('#paypal-button-container');
+    </script>
+
+</div>
+{% endblock %}

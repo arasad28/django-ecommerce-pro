@@ -1,0 +1,104 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Product Details {% endblock %}
+{% block content %}
+	<!-- Single Product -->
+
+	<div class="single_product">
+		<div class="container">
+			<div class="row">
+
+				<!-- Images -->
+				<div class="col-lg-2 order-lg-1 order-2">
+					<ul class="image_list">
+						<li data-image="/media/{{object.image}}"><img src="/media/{{object.image}}" alt=""></li>
+						<li data-image="images/single_2.jpg"><img src="images/single_2.jpg" alt=""></li>
+						<li data-image="images/single_3.jpg"><img src="images/single_3.jpg" alt=""></li>
+					</ul>
+				</div>
+
+				<!-- Selected Image -->
+				<div class="col-lg-5 order-lg-2 order-1">
+					<div class="image_selected"><img src="/media/{{object.image}}" alt=""></div>
+				</div>
+
+				<!-- Description -->
+				<div class="col-lg-5 order-3">
+					<div class="product_description">
+						<div class="product_category">{{object.category.title}}</div>
+						<div class="product_name">{{object.title}}</div>
+						<div class="rating_r rating_r_4 product_rating"><i></i><i></i><i></i><i></i><i></i></div>
+						<div class="product_text"><p>{{object.short_description}}</p></div>
+						<div class="order_info d-flex flex-row">
+							<form action="#">
+								<div class="clearfix" style="z-index: 1000;">
+
+									<!-- Product Quantity -->
+									<div class="product_quantity clearfix">
+										<span>Quantity: 1</span>
+									</div>
+
+
+
+								</div>
+
+								<div class="product_price"><h2>${{object.price}}{% if object.price < object.old_price %}<span> ${{object.old_price}}</span>{% endif %}</div>
+								<div class="button_container">
+									<a href="{% url 'app_order:add' pk=object.pk %}"><button type="button" class="button cart_button">Add to Cart</button></a>
+									<div class="product_fav"><i class="fas fa-heart"></i></div>
+								</div>
+								
+							</form>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+<div class="container  ">
+
+	<ul class="nav nav-tabs align-middle" id="myTab" role="tablist">
+		<li class="nav-item">
+		  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="true"><h4>Details</h4></a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#comment" role="tab" aria-controls="comment" aria-selected="false"><h4>Comment</h4></a>
+		</li>
+	  </ul>
+	  <div class="tab-content" id="myTabContent">
+		<div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="home-tab">
+			<div class="container">
+				{{object.full_description|safe}}
+			</div>
+		</div>
+		<div class="tab-pane fade" id="comment" role="tabpanel" aria-labelledby="profile-tab">
+			<div class="row">
+				<div class="col-sm-6">
+					<hr>
+					<h5>Comments:</h5>
+					{% for com in object.product_comment.all %}
+					
+					<p><a href="">{{com.user}} <br> </a>{{com.comment}}
+					<br>{{com.comment_date}}
+					</p>
+					{% endfor %}
+				</div>
+				<div class="col-sm-6">
+					<form method="POST">
+						{{comment|crispy}}
+						{% csrf_token %}
+						<button type="submit" class="btn btn-primary btn-sm">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	  </div>
+</div>
+<br><br><br>
+
+
+{% endblock %}
+
+	

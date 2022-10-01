@@ -1,0 +1,64 @@
+
+            <div class="viewed my-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="viewed_title_container">
+                                <h3 class="viewed_title">Time Left </h3>
+                                <div class="deals_timer_content ml-auto">
+                                    <div class="deals_timer_box clearfix" data-target-time="">
+                                        <div class="deals_timer_unit">
+                                            <div id="deals_timer1_hr" class="deals_timer_hr"></div>
+                                            <span>hours</span>
+                                        </div>
+                                        <div class="deals_timer_unit">
+                                            <div id="deals_timer1_min" class="deals_timer_min"></div>
+                                            <span>mins</span>
+                                        </div>
+                                        <div class="deals_timer_unit">
+                                            <div id="deals_timer1_sec" class="deals_timer_sec"></div>
+                                            <span>secs</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="viewed_nav_container">
+                                    <div class="viewed_nav viewed_prev"><i class="fas fa-chevron-left"></i></div>
+                                    <div class="viewed_nav viewed_next"><i class="fas fa-chevron-right"></i></div>
+                                </div>
+                            </div>
+                                
+                                
+                            <div class="viewed_slider_container">
+                                
+                                <!-- Recently Viewed Slider -->
+        
+                                <div class="owl-carousel owl-theme viewed_slider">
+                                    
+                                    <!-- Recently Viewed Item -->
+                                    {% for obj in deal %}
+                                    <div class="owl-item">
+                                        <div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="viewed_image"><img src="/media/{{obj.image}}" alt=""></div>
+                                            <div class="viewed_content text-center">
+                                                <div class="viewed_price">${{obj.price}}{% if obj.price < obj.old_price %}<span> ${{obj.old_price}}</span>{% endif %}</div>
+                                                <div class="viewed_name"><a href="{% url 'app_shop:product' pk=obj.pk %}">{{obj.title}}</a></div>
+                                            </div>
+                                            <ul class="item_marks">
+                                                {% if obj.discount %}
+                                                <li class="item_mark item_discount">{{obj.discount}}%</li>
+                                                {% endif %}
+                                               
+                                                <li class="item_mark item_new">new</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
