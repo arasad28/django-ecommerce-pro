@@ -26,7 +26,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!--[![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 This is an advance level e-commerce project with made by me with many of feature.
 These are not such common feature what people add during a e-commerce project with Django.
@@ -34,7 +34,6 @@ I made these feature with myself. And these feature are very much needed in curr
 Some feature like email verification and other feature with is widely needed add soon hopefully.
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ***
 ### Feature
