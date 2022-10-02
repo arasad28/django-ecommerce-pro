@@ -41,6 +41,7 @@ Some feature like email verification and other feature with is widely needed add
 * Email Login
 * Quick Deal Feature
 * Slider
+* Pagination
 * Comment Section
 * Custom Editor for full product description
 * Cart section with all the functionality
