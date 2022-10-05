@@ -25,9 +25,9 @@
 
 
 ## About The Project
-<p align="center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/a03Wp_enDtQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</p>
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=a03Wp_enDtQ&t=7s "Video Title")
+
+
 This is an advance level e-commerce project with made by me with many of feature.
 These are not such common feature what people add during a e-commerce project with Django.
 I made these feature with myself. And these feature are very much needed in current e-commerce site.
