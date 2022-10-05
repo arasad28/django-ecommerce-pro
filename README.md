@@ -25,7 +25,7 @@
 
 
 ## About The Project
-[![Django Ecommerce website(https://user-images.githubusercontent.com/87448421/194109386-e168d24f-a4a1-4ee2-b465-142e916a0a88.jpg)](https://www.youtube.com/embed/a03Wp_enDtQ "Django Ecommerce website")
+[![Django Ecommerce website](https://user-images.githubusercontent.com/87448421/194109386-e168d24f-a4a1-4ee2-b465-142e916a0a88.jpg)](https://www.youtube.com/embed/a03Wp_enDtQ "Django Ecommerce website")
 
 
 This is an advance level e-commerce project with made by me with many of feature.
