@@ -25,7 +25,7 @@
 
 
 ## About The Project
-[![IMAGE ALT TEXT](![mq1](https://user-images.githubusercontent.com/87448421/194109386-e168d24f-a4a1-4ee2-b465-142e916a0a88.jpg))](https://www.youtube.com/watch?v=a03Wp_enDtQ&t=7s "Video Title")
+[![IMAGE ALT TEXT](https://user-images.githubusercontent.com/87448421/194109386-e168d24f-a4a1-4ee2-b465-142e916a0a88.jpg)](https://www.youtube.com/watch?v=a03Wp_enDtQ&t=7s "Video Title")
 
 
 This is an advance level e-commerce project with made by me with many of feature.
