@@ -71,7 +71,6 @@ Some feature like email verification and other feature with is widely needed add
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -115,7 +114,6 @@ python manage.py createsuperuser
 ```
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -131,7 +129,7 @@ python manage.py createsuperuser
 
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#">back to top</a>)</p>
 
 
 
